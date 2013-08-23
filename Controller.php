@@ -3,14 +3,13 @@ function __autoload($className){
 	include_once("models/$className.php");	
 }
 
-$users=new User("your_host","your_user","your_password","your_database");
+$users=new User("localhost","root","","task-manager");
 
 if(!isset($_POST['action'])) {
 	print json_encode(0);
 	return;
 }
 
-// Almost spoiled my day 11th May 2013.
 if(get_magic_quotes_gpc()){
     $userParams = stripslashes($_POST['user']);
 } else {
